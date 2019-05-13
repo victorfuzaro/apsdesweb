@@ -1,0 +1,119 @@
+.modalDialog {
+  position: fixed;
+  font-family: Arial, Helvetica, sans-serif;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 99999;
+  opacity: 0;
+  -webkit-transition: opacity 400ms ease-in;
+  -moz-transition: opacity 400ms ease-in;
+  transition: opacity 400ms ease-in;
+  pointer-events: none;
+}
+
+.modalDialog:target {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modalDialog>div {
+  width: 400px;
+  position: relative;
+  margin: 10% auto;
+  padding: 5px 20px 13px 20px;
+  border-radius: 10px;
+  background: #fff;
+  background: -moz-linear-gradient(#fff, #DCD3D3);
+  background: -webkit-linear-gradient(#fff, #DCD3D3);
+  background: -o-linear-gradient(#fff, #DCD3D3);
+}
+
+.close {
+  background: #606061;
+  color: #FFFFFF;
+  line-height: 25px;
+  position: absolute;
+  right: -12px;
+  text-align: center;
+  top: -10px;
+  width: 24px;
+  text-decoration: none;
+  font-weight: bold;
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  border-radius: 12px;
+  -moz-box-shadow: 1px 1px 3px #000;
+  -webkit-box-shadow: 1px 1px 3px #000;
+  box-shadow: 1px 1px 3px #000;
+}
+
+.close:hover {
+  background: #BF0808;
+}
+
+.painel_perguntas {
+  width: auto;
+  height: auto;
+  background: #EFEFEF;
+  box-shadow: 1px 1px 10px #999;
+  margin: auto;
+  text-align: center;
+  position: relative;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  padding-top: 5px;
+}
+
+.scroll {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  height: 160px;
+  white-space: nowrap;
+}
+
+.moldura {
+  width: 150px;
+  height: 150px;
+  box-shadow: 1px 1px 10px #999;
+  margin: 3px;
+  max-height: 130px;
+  cursor: pointer;
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  vertical-align: top;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.bg_EditarPergunta {
+  width: 100%;
+  height: 540px;
+  background-color: #DCDCDC;
+}
+
+.editarPergunta {
+  width: 800px;
+  height: 500px;
+  background-color: white;
+  padding: 50px;
+  margin-top: 10px;
+  margin-left: 380px;
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  vertical-align: top;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.editarPergunta input {
+  display: inline-block;
+  margin-top: 10px;
+}

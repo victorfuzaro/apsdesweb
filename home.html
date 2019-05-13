@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="">
+    <title>A.U.F.F</title>
+    <link href="css/home.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">  
+  </head>
+
+<body>
+<img src="img/logo.jpg" alt="logo">
+
+<div class="row justify-content-center align-items-center h-100">
+    <div class="col col-sm-6 col-md-6 col-lg-4 col-xl-3">
+        <form action="">
+            <div class="col-sm-10 offset-sm-1 text-center">
+                <label for="exampleInputEmail1">Digite o código do jogo</label>
+              </div>
+            <div class="form-group">
+                <input _ngcontent-c0="" class="form-control form-control-lg" placeholder="Código" type="text" id="codigo" required>
+            </div>
+            <div class="form-group"></div>
+                <a class="btn btn-info btn-lg btn-block" href="game.html" onclick="checkCodigo()">Enviar</a>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+function checkCodigo(){
+var codigo = document.getElementById("codigo").value;
+if (codigo == ""){
+    alert("Você deve digitar o código!");
+}
+}
+</script>
+</body>
+</html>

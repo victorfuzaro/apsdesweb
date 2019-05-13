@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <!-- Meta tags Obrigatórias -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="style/style.css" />
+    <title>Editar Pergunta</title>
+</head>
+
+<body>
+    <header>
+        <div class="navbar navbar-dark bg-dark shadow-sm">
+            <div class="container d-flex justify-content-between">
+                <strong class="navbar-brand d-flex align-items-center">A.U.F.F</strong>
+            </div>
+        </div>
+    </header>
+
+    <!-- Perguntas já foram feitas -->
+    <div class="painel_perguntas">
+        <div class="scroll" id="novaMoldura">
+
+        </div>
+    </div>
+
+    <!-- Edição das perguntas -->
+    <div class="bg_EditarPergunta">
+        <div class="editarPergunta">
+            <div class="form-group">
+                <textarea class="form-control" name="pergunta" id="exampleFormControlTextarea1" rows="5"></textarea>
+
+                <input type="radio" name="opt" value="alt1"><input type="text" class="form-control"
+                    style="width: 682px; margin-left: 5px;" name="alternativa1" placeholder="Alternativa 1" />
+                <input type="radio" name="opt" value="alt2"><input type="text" class="form-control"
+                    style="width: 682px; margin-left: 5px;" name="alternativa2" placeholder="Alternativa 2" />
+                <input type="radio" name="opt" value="alt3"><input type="text" class="form-control"
+                    style="width: 682px; margin-left: 5px;" name="alternativa3" placeholder="Alternativa 3" />
+                <input type="radio" name="opt" value="alt4"><input type="text" class="form-control"
+                    style="width: 682px; margin-left: 5px;" name="alternativa4" placeholder="Alternativa 4" />
+                <input type="radio" name="opt" value="alt5"><input type="text" class="form-control"
+                    style="width: 682px; margin-left: 5px;" name="alternativa5" placeholder="Alternativa 5" />
+
+                <button type="button" style="margin-right: 3px; margin-top: 5px; float: right;"
+                    onclick="excluiPergunta()" class='btn btn-outline-danger'><b>Excluir</b></button>
+                <button type="button" style="margin-right: 3px; margin-top: 5px; float: right;"
+                    onclick="adicionaPergunta()" class='btn btn-outline-success'><b>Inserir</b></button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var i = 0;
+        //Funcao adiciona nova pergunta
+        function adicionaPergunta() {
+            document.getElementById('novaMoldura').innerHTML += "<div class='moldura' id='i'><p>Pergunta " + (i + 1) + "</p></div>";
+            i++;
+        }
+
+        // funcao remove pergunta
+        function excluiPergunta() {
+            document.getElementById('i').remove();
+            i--;
+        }            
+    </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
