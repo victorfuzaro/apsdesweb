@@ -5,6 +5,8 @@
     <meta charset="utf-8">
     <title>Questão</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="js/Pergunta.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <style>
@@ -14,18 +16,11 @@
             left: 0;
         }
     </style>
-    <script type="text/javascript">
-        window.onload = function () {
-            getRA();
-            getQuestaoNumber();
-            getQuestao();
-        }
-    </script>
 </head>
 
 <body>
     <div class="jumbotron text-center" id="nQuestao">
-            <h3>Pergunta: ... ... ...?</h3>
+            <h3 id="pergunta"></h3>
     </div>
 
     <div id="questao" style=" text-align: justify; padding-right: 50px; padding-left: 50px">
@@ -35,25 +30,58 @@
     <form style="width: 600px">
         <ul>
             <li class="list-group-item"><input id="primeiro" type="radio" name="alternativa" value="1" required="">
-                <label for="primeiro">String da alternativa - A</label></li>
+                <label for="primeiro" id='r1'></label></li>
             <li class="list-group-item"><input id="segundo" type="radio" name="alternativa" value="2" required="">
-                <label for="segundo">String da alternativa - B</label></li>
-            <li class="list-group-item"><input id="terceiro" type="radio" name="alternativa" value="3" required="">
-                <label for="terceiro">String da alternativa - C</label></li>
-            <li class="list-group-item"><input id="quarto" type="radio" name="alternativa" value="4" required="">
-                <label for="quarto">String da alternativa - D</label></li>
-            <li class="list-group-item"><input id="quinto" type="radio" name="alternativa" value="5" required="">
-                <label for="quinto">String da alternativa - E</label></li>
+                <label for="segundo" id='r2'></label></li>
         </ul>
         <div style="text-align: right;right:0px;">
-            <a type="submit" class="btn btn-success" onclick="getResposta()" href="status.html">Próxima</a>
+            <a type="submit" class="btn btn-success" onclick="respostaCerta()">Próxima</a>
         </div>
     </form>
     <footer class="footer navbar-fixed-bottom">
             <img src="img/logo.jpg">
         </footer>
         
-    <script src="js/Pergunta.js"></script>
+  <script>
+      // ao carregar a página, verifica o cookie que informa o ID do game, definido na ordem em que os games estão adicionados
+          $(document).ready(function(){
+            var id = readCookie('btn_id');
+            $.ajax({ // utilização de POST para PHP com AJAX
+            type: 'POST',
+            url: '/aps/get_questions.php',              
+            data: {id:id},  // faz um POST passando o ID do game
+            async: false,  
+            success: function(data) {
+                table_data = jQuery.parseJSON(data); // retorna a pergunta contida nele em um json, que é transformado em um array JavaScript
+            }  
+            });
+            // modifica os elementos de pergunta e alternativas para os dados da respectiva questao.
+            document.getElementById('pergunta').innerHTML = 'Pergunta: ' + table_data[1]; 
+            document.getElementById('r1').innerHTML = table_data[2];
+            document.getElementById('r2').innerHTML = table_data[3];
+            // infelizmente por falta de tempo e capacidade do grupo nao conseguimos fazer a configuração para funcionar com mais de uma pergunta...
+})
+        // função que lê cookies.
+            function readCookie(name) {
+                var nameEQ = name + "=";
+                var ca = document.cookie.split(';');
+                for(var i=0;i < ca.length;i++) {
+                    var c = ca[i];
+                    while (c.charAt(0)==' ') c = c.substring(1,c.length);
+                    if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+                }
+                return null;
+            }    
+            // função simples para alertar se o usuário acertou ou não a resposta ao clicar em próximo.
+            function respostaCerta(){
+                if (document.getElementById('primeiro').checked){
+                    alert('Você acertou!');
+                }else{
+                    alert('Você errou!');
+                }
+
+            }
+  </script> 
 
 </body>
 
