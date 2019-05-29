@@ -9,8 +9,9 @@
         $pergunta = $_POST['pergunta'];
         $alternativa1 = $_POST['alternativa1'];
         $alternativa2 = $_POST['alternativa2'];
+        $gameid = $_POST['gameid'];
         $con = mysqli_connect("localhost", "root", "", "aulaphp");
-        $sql = "INSERT INTO pergunta (pergunta, r1, r2) VALUES('$pergunta','$alternativa1','$alternativa2')";
+        $sql = "INSERT INTO pergunta (pergunta, r1, r2, gameid) VALUES('$pergunta','$alternativa1','$alternativa2', $gameid)";
         
         if (mysqli_query($con, $sql)){
             echo 'dados gravados';

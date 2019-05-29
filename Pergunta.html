@@ -35,7 +35,7 @@
                 <label for="segundo" id='r2'></label></li>
         </ul>
         <div style="text-align: right;right:0px;">
-            <a type="submit" class="btn btn-success" onclick="respostaCerta()">Próxima</a>
+            <a type="submit" class="btn btn-success" id="proxima" onclick="respostaCerta()">Próxima</a>
         </div>
     </form>
     <footer class="footer navbar-fixed-bottom">
@@ -43,6 +43,8 @@
         </footer>
         
   <script>
+            var table_data = ""
+            var pos = ""
       // ao carregar a página, verifica o cookie que informa o ID do game, definido na ordem em que os games estão adicionados
           $(document).ready(function(){
             var id = readCookie('btn_id');
@@ -59,8 +61,24 @@
             document.getElementById('pergunta').innerHTML = 'Pergunta: ' + table_data[1]; 
             document.getElementById('r1').innerHTML = table_data[2];
             document.getElementById('r2').innerHTML = table_data[3];
-            // infelizmente por falta de tempo e capacidade do grupo nao conseguimos fazer a configuração para funcionar com mais de uma pergunta...
+            pos = 5;
 })
+            $('#proxima').click(function(){
+            if (table_data.length > pos){
+            var p = 6;
+            var r1 = 7;
+            var r2 = 8;
+            document.getElementById('pergunta').innerHTML = 'Pergunta: ' + table_data[p]; 
+            document.getElementById('r1').innerHTML = table_data[r1];
+            document.getElementById('r2').innerHTML = table_data[r2];
+            p = p+5;
+            r1 = r1+5;
+            r2 = r2+5;
+            pos = pos + 5;
+            }else{
+                document.getElementById('proxima').innerText = 'finalizar';
+            }
+            })
         // função que lê cookies.
             function readCookie(name) {
                 var nameEQ = name + "=";

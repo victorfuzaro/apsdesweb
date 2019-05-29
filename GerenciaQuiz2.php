@@ -90,7 +90,7 @@
             celula2.innerHTML = "<td>" + table_data[array] + "</td>";
             celula3.innerHTML = "<td>" + table_data[array+1] + "</td>";
             celula4.innerHTML = "<td>"+ table_data[array+2] + "</td>";
-            celula5.innerHTML = "<td>" + "<a href='EdicaoPergunta.html' class='btn btn-sm btn-outline-secondary'>Cadastrar Perguntas</a> " +  "<button type='button' id='deletar_" + contador + "' onclick='removerLinha(this)' class='btn btn-sm btn-outline-secondary'>Excluir</button>" + "</td>";
+            celula5.innerHTML = "<td>" + "<a href='EdicaoPergunta.html' class='btn btn-sm btn-outline-secondary' onclick='passId(this)'>Cadastrar Perguntas</a> " +  "<button type='button' id='deletar_" + contador + "' onclick='removerLinha(this)' class='btn btn-sm btn-outline-secondary'>Excluir</button>" + "</td>";
             array = array + 3;
             contador = contador+1;
             contador_iniciar = contador+1;

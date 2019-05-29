@@ -11,7 +11,7 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 $ID = $_POST['id'];
-$sql = "SELECT id, pergunta, r1, r2 FROM pergunta WHERE id = $ID";
+$sql = "SELECT id, pergunta, r1, r2, gameid FROM pergunta WHERE gameid = $ID";
 $result = mysqli_query($conn, $sql);
 $data_items = array();
 if (mysqli_num_rows($result) > 0) {
@@ -20,6 +20,7 @@ if (mysqli_num_rows($result) > 0) {
         array_push($data_items, $row['pergunta']);
         array_push($data_items, $row['r1']);
         array_push($data_items, $row['r2']);
+        array_push($data_items, $row['gameid']);
     }
 } else {
     echo "0 results";
